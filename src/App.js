@@ -1,24 +1,31 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import UserInfo from './components/UserInfo';
+import UserLogin from './components/UserLogin';
+import UserPage from './components/UserPage';
+import UserProvider from './provider/UserProvider';
+import PrivateProvider from './provider/PrivateProvider';
+
+import PrivateInfo from './components/PrivateInfo';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserProvider>
+        <UserInfo></UserInfo>
+        <UserLogin></UserLogin>
+        <UserPage></UserPage>
+        
+      </UserProvider>
+
+
+      <UserProvider>
+        <PrivateProvider>
+          <PrivateInfo></PrivateInfo>
+        </PrivateProvider>        
+      </UserProvider>
+      
     </div>
   );
 }
